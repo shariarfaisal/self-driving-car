@@ -19,3 +19,22 @@ function getInterSection(A, B, C, D) {
     }
   }
 }
+
+function polysIntersect(ploy1, poly2) {
+  for (let i = 0; i < ploy1.length; i++) {
+    for (let j = 0; j < poly2.length; j++) {
+      const touch = getInterSection(
+        ploy1[i],
+        ploy1[(i + 1) % ploy1.length],
+        poly2[j],
+        poly2[(j + 1) % poly2.length]
+      );
+
+      if (touch) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
